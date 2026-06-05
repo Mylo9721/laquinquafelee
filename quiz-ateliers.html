@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ateliers Grand Public — La Quinqua Fêlée™</title>
+  <meta name="description" content="Ateliers bienveillants pour mieux vivre la ménopause et les transitions après 45 ans. Ancrés dans la réalité créole.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --creme: #FAF6EF;
+      --creme-dark: #F2EBD9;
+      --prune: #5C1F3C;
+      --prune-light: #7A2950;
+      --rose: #D4859A;
+      --rose-light: #F0C4CE;
+      --dore: #C9A84C;
+      --dore-light: #E8D5A0;
+      --vert: #4A6741;
+      --texte: #2C1810;
+      --texte-doux: #6B4E3D;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--creme);
+      color: var(--texte);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--prune);
+      background-image:
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 80%, rgba(212,133,154,0.2) 0%, transparent 50%);
+      color: white;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-marque {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dore-light);
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .hero-titre {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 7vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .hero-sous-titre {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      color: var(--rose-light);
+      margin-bottom: 1rem;
+    }
+
+    .hero-signature {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--dore-light);
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .hero-signature span { margin: 0 0.5rem; color: var(--dore); }
+
+    .hero-accroche {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 5vw, 1.5rem);
+      font-style: italic;
+      color: var(--dore-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-intro {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    /* ─── BOUTONS ─── */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+    }
+
+    .btn-principal {
+      background: var(--dore);
+      color: var(--prune);
+      box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      margin: 0 auto 1rem;
+      font-size: 1.05rem;
+    }
+
+    .btn-principal:hover {
+      background: var(--dore-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(201,168,76,0.45);
+    }
+
+    .btn-secondaire {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    .btn-secondaire:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      margin: 0 auto 1rem;
+      font-size: 1.05rem;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1EBD5A;
+      transform: translateY(-2px);
+    }
+
+    .btn-quiz-dark {
+      background: var(--prune);
+      color: white;
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    .btn-quiz-dark:hover {
+      background: var(--prune-light);
+      transform: translateY(-2px);
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 3rem 1.5rem; }
+
+    .section-titre {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      color: var(--prune);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .section-sous-titre {
+      font-size: 0.9rem;
+      color: var(--texte-doux);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .separateur {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--dore), var(--rose));
+      margin: 0.75rem auto 2rem;
+      border-radius: 2px;
+    }
+
+    /* ─── SECTION QUIZ ─── */
+    .section-quiz {
+      background: linear-gradient(135deg, var(--prune) 0%, var(--prune-light) 100%);
+      color: white;
+      text-align: center;
+      border-radius: 0;
+    }
+
+    .section-quiz .section-titre { color: white; }
+
+    .quiz-texte {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+
+    /* ─── ATELIERS CARDS ─── */
+    .ateliers-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .atelier-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.4rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: 0 2px 12px rgba(92,31,60,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-left: 3px solid var(--dore);
+    }
+
+    .atelier-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(92,31,60,0.12); }
+
+    .atelier-numero {
+      width: 32px;
+      height: 32px;
+      background: var(--prune);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .atelier-contenu h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--prune);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .atelier-contenu p {
+      font-size: 0.85rem;
+      color: var(--texte-doux);
+      line-height: 1.6;
+    }
+
+    /* ─── FORMATS ─── */
+    .formats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .format-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(92,31,60,0.07);
+    }
+
+    .format-icone {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .format-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--prune);
+      margin-bottom: 0.3rem;
+    }
+
+    .format-card p {
+      font-size: 0.8rem;
+      color: var(--texte-doux);
+      line-height: 1.5;
+    }
+
+    /* ─── POUR QUI ─── */
+    .pour-qui {
+      background: var(--creme-dark);
+      text-align: center;
+    }
+
+    .pour-qui-texte {
+      font-size: 1rem;
+      color: var(--texte-doux);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ─── CE QUE VOUS GAGNEZ ─── */
+    .gains-liste {
+      list-style: none;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .gains-liste li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      font-size: 0.95rem;
+      color: var(--texte-doux);
+      border-bottom: 1px solid var(--creme-dark);
+    }
+
+    .gains-liste li:last-child { border-bottom: none; }
+
+    .gain-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--dore);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── ANCRAGE CREOLE ─── */
+    .section-creole {
+      background: var(--prune);
+      color: white;
+      text-align: center;
+    }
+
+    .section-creole .section-titre { color: var(--dore-light); }
+
+    .creole-texte {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .creole-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .creole-tag {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--dore-light);
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+    }
+
+    /* ─── CTA FINAL ─── */
+    .section-cta {
+      background: var(--creme-dark);
+      text-align: center;
+    }
+
+    .cta-titre {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 5vw, 1.7rem);
+      color: var(--prune);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-sous {
+      font-size: 0.9rem;
+      color: var(--texte-doux);
+      margin-bottom: 2rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--texte);
+      color: rgba(255,255,255,0.7);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-marque {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--dore-light);
+      margin-bottom: 1rem;
+    }
+
+    .footer-liens {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-liens a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+
+    .footer-liens a:hover { color: var(--dore-light); }
+
+    .footer-mention {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero > * {
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-marque { animation-delay: 0.1s; }
+    .hero-titre { animation-delay: 0.2s; }
+    .hero-sous-titre { animation-delay: 0.3s; }
+    .hero-signature { animation-delay: 0.35s; }
+    .hero-accroche { animation-delay: 0.4s; }
+    .hero-intro { animation-delay: 0.5s; }
+    .hero-btns { animation-delay: 0.6s; }
+
+    /* ─── DESKTOP ─── */
+    @media (min-width: 640px) {
+      .ateliers-grid { grid-template-columns: 1fr 1fr; }
+      .formats-grid { grid-template-columns: repeat(4, 1fr); }
+      section { padding: 4rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-marque">La Quinqua Fêlée™ · Guadeloupe</p>
+  <h1 class="hero-titre">Ateliers Grand Public<br>La Quinqua Fêlée™</h1>
+  <p class="hero-sous-titre">Mieux vivre la ménopause et les transitions après 45 ans</p>
+  <p class="hero-signature">Comprendre <span>·</span> Nourrir <span>·</span> Honorer</p>
+  <p class="hero-accroche">Après 45 ans, ton corps ne "bugue" pas.<br>Il te parle.</p>
+  <p class="hero-intro">Fatigue, sommeil en vrac, bouffées de chaleur, brouillard mental, émotions, perte d'élan… Et si tu mettais enfin des mots sur ce que tu traverses ?</p>
+  <div class="hero-btns">
+    <a href="https://laquinquafelee.netlify.app/quiz" class="btn btn-principal">🌺 Faire le quiz</a>
+    <a href="#ateliers" class="btn btn-secondaire">Découvrir les ateliers</a>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section-quiz" id="quiz">
+  <h2 class="section-titre">Quel est ton profil de transition après 45 ans ?</h2>
+  <div class="separateur"></div>
+  <p class="quiz-texte">En quelques minutes, découvre ton profil du moment et reçois de premières pistes pour mieux comprendre tes signaux : fatigue, sommeil, émotions, concentration, chaleur, besoin de ralentir ou désir de te réinventer.</p>
+  <a href="https://laquinquafelee.netlify.app/quiz" class="btn btn-principal">Accéder au quiz</a>
+</section>
+
+<!-- ATELIERS PHARES -->
+<section id="ateliers">
+  <h2 class="section-titre">Nos ateliers phares</h2>
+  <div class="separateur"></div>
+  <p class="section-sous-titre">Des espaces bienveillants pour comprendre, échanger et retrouver des repères</p>
+  <div class="ateliers-grid">
+    <div class="atelier-card">
+      <div class="atelier-numero">1</div>
+      <div class="atelier-contenu">
+        <h3>Comprendre la périménopause et la ménopause</h3>
+        <p>Changements hormonaux, transformations du corps, signaux fréquents, idées reçues et repères utiles.</p>
+      </div>
+    </div>
+    <div class="atelier-card">
+      <div class="atelier-numero">2</div>
+      <div class="atelier-contenu">
+        <h3>Alimentation de confort et ressources créoles</h3>
+        <p>Des pistes simples inspirées des ressources locales pour mieux soutenir son quotidien.</p>
+      </div>
+    </div>
+    <div class="atelier-card">
+      <div class="atelier-numero">3</div>
+      <div class="atelier-contenu">
+        <h3>Bouffées de chaleur, sommeil et fatigue</h3>
+        <p>Comprendre ces inconforts et découvrir des pistes concrètes pour apaiser le quotidien.</p>
+      </div>
+    </div>
+    <div class="atelier-card">
+      <div class="atelier-numero">4</div>
+      <div class="atelier-contenu">
+        <h3>Brouillard mental, mémoire et concentration</h3>
+        <p>Mettre des mots sur les troubles cognitifs et soutenir sa clarté mentale.</p>
+      </div>
+    </div>
+    <div class="atelier-card">
+      <div class="atelier-numero">5</div>
+      <div class="atelier-contenu">
+        <h3>Réinvention après 45 ans</h3>
+        <p>Faire le point, retrouver son élan et ouvrir un nouveau chapitre personnel ou professionnel.</p>
+      </div>
+    </div>
+    <div class="atelier-card">
+      <div class="atelier-numero">6</div>
+      <div class="atelier-contenu">
+        <h3>Libido, intimité, périnée et image de soi</h3>
+        <p>Aborder les sujets intimes avec douceur, dignité et respect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section style="background: var(--creme-dark);">
+  <h2 class="section-titre">Formats proposés</h2>
+  <div class="separateur"></div>
+  <div class="formats-grid">
+    <div class="format-card">
+      <span class="format-icone">🌸</span>
+      <h3>Atelier découverte</h3>
+      <p>2h à 3h pour poser les bases et repartir avec des repères.</p>
+    </div>
+    <div class="format-card">
+      <span class="format-icone">🎯</span>
+      <h3>Atelier thématique</h3>
+      <p>Un focus sur un sujet précis : sommeil, fatigue, alimentation, émotions…</p>
+    </div>
+    <div class="format-card">
+      <span class="format-icone">🤝</span>
+      <h3>Cycle en petit groupe</h3>
+      <p>Un parcours collectif pour aller plus loin et avancer pas à pas.</p>
+    </div>
+    <div class="format-card">
+      <span class="format-icone">💬</span>
+      <h3>Rencontre bien-être</h3>
+      <p>Un temps d'échange, de ressources et de conseils pratiques.</p>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="pour-qui">
+  <h2 class="section-titre">Pour qui ?</h2>
+  <div class="separateur"></div>
+  <p class="pour-qui-texte">Pour les femmes de 45 ans et plus, en périménopause, ménopause ou postménopause, qui souhaitent mieux comprendre leur corps, retrouver des repères, sortir de l'isolement et avancer avec plus de confiance.</p>
+</section>
+
+<!-- CE QUE VOUS GAGNEZ -->
+<section>
+  <h2 class="section-titre">Ce que vous y gagnez</h2>
+  <div class="separateur"></div>
+  <ul class="gains-liste">
+    <li><span class="gain-dot"></span>Des repères clairs</li>
+    <li><span class="gain-dot"></span>Des mots sur ce que vous vivez</li>
+    <li><span class="gain-dot"></span>Des pistes concrètes</li>
+    <li><span class="gain-dot"></span>Un espace bienveillant</li>
+    <li><span class="gain-dot"></span>Des ressources locales et adaptées</li>
+    <li><span class="gain-dot"></span>Le sentiment de ne plus être seule</li>
+  </ul>
+</section>
+
+<!-- ANCRAGE CREOLE -->
+<section class="section-creole">
+  <h2 class="section-titre">Une approche ancrée dans la réalité créole</h2>
+  <div class="separateur"></div>
+  <p class="creole-texte">Selon les thèmes, les ateliers peuvent intégrer des ressources locales, des savoirs de confort, des cercles de parole, des intervenantes partenaires et des orientations utiles.</p>
+  <p class="creole-texte" style="margin-top:1rem;">Les plantes et savoirs traditionnels sont abordés avec prudence, dans une démarche pédagogique et informative.</p>
+  <div class="creole-tags">
+    <span class="creole-tag">🌿 Plantes caribéennes</span>
+    <span class="creole-tag">🍲 Alimentation locale</span>
+    <span class="creole-tag">💬 Cercles de parole</span>
+    <span class="creole-tag">🤝 Partenaires spécialisées</span>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section-cta">
+  <h2 class="cta-titre">Envie de participer ou d'organiser un atelier ?</h2>
+  <p class="cta-sous">Contactez-nous sur WhatsApp pour toute question, information ou demande d'organisation.</p>
+  <a href="https://wa.me/590690701398" class="btn btn-whatsapp">💬 Me contacter sur WhatsApp</a>
+  <a href="https://laquinquafelee.netlify.app/quiz" class="btn btn-quiz-dark" style="margin-top:0.5rem;">🌺 Faire le quiz</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-marque">La Quinqua Fêlée™</p>
+  <div class="footer-liens">
+    <a href="https://wa.me/590690701398">📱 WhatsApp : 0690 70 13 98</a>
+    <a href="https://laquinquafelee.fr/">🌐 laquinquafelee.fr</a>
+    <a href="https://www.instagram.com/laquinqua_felee">📷 @laquinqua_felee</a>
+    <a href="mailto:laquinquafelee@gmail.com">✉️ laquinquafelee@gmail.com</a>
+  </div>
+  <p class="footer-mention">Contenus pédagogiques et informatifs. Ne remplacent pas un avis médical, un diagnostic, un traitement ou un suivi par un professionnel de santé. En cas de symptômes importants, persistants ou inhabituels, il est recommandé de consulter un médecin, une sage-femme ou un professionnel de santé qualifié.</p>
+</footer>
+
+</body>
+</html>
