@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partager mon vécu — La Quinqua Fêlée™</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --creme: #FAF7F2;
+    --creme-dark: #F2EAD8;
+    --prune: #5C1F3C;
+    --prune-light: #7A2950;
+    --rose: #D4859A;
+    --rose-light: #F5E6ED;
+    --dore: #C9A84C;
+    --dore-light: #EED9A0;
+    --texte: #2C1810;
+    --texte-doux: #7A6A60;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--creme);
+    color: var(--texte);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--prune);
+    background-image:
+      radial-gradient(ellipse at 85% 15%, rgba(201,168,76,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 10% 85%, rgba(212,133,154,0.2) 0%, transparent 50%);
+    color: white;
+    padding: 3.5rem 1.5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-marque {
+    font-size: 0.75rem; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dore-light); margin-bottom: 1.5rem; opacity: 0.85;
+  }
+
+  .hero-fleur {
+    font-size: 2.5rem; margin-bottom: 1rem;
+    animation: bloom 2s ease both;
+  }
+
+  @keyframes bloom {
+    from { transform: scale(0.5) rotate(-15deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .hero-titre {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    font-weight: 600; line-height: 1.2;
+    color: white; margin-bottom: 0.75rem;
+  }
+
+  .hero-titre em {
+    font-style: italic; color: var(--dore-light);
+  }
+
+  .hero-sous {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 4vw, 1.15rem);
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+
+  .hero-note {
+    display: inline-block;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.04em;
+  }
+
+  /* INTRO */
+  .intro {
+    max-width: 560px; margin: 0 auto;
+    padding: 2.5rem 1.5rem 0;
+    text-align: center;
+  }
+
+  .intro-texte {
+    font-size: 1rem; line-height: 1.8;
+    color: var(--texte-doux);
+  }
+
+  .intro-texte strong { color: var(--prune); font-weight: 500; }
+
+  .separateur {
+    width: 50px; height: 2px;
+    background: linear-gradient(90deg, var(--dore), var(--rose));
+    margin: 2rem auto;
+    border-radius: 2px;
+  }
+
+  /* FORMULAIRE */
+  .form-wrapper {
+    max-width: 600px; margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.75rem;
+  }
+
+  .form-label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--prune);
+    margin-bottom: 0.35rem;
+    line-height: 1.4;
+  }
+
+  .form-hint {
+    font-size: 0.82rem;
+    color: var(--texte-doux);
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    border-radius: 12px;
+    border: 1.5px solid rgba(92,31,60,0.15);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--texte);
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--prune);
+    box-shadow: 0 0 0 3px rgba(92,31,60,0.08);
+  }
+
+  .form-textarea {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.65;
+  }
+
+  .form-textarea.grande {
+    min-height: 180px;
+  }
+
+  /* OPTIONS RADIO */
+  .radio-group {
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+
+  .radio-option {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--white);
+    border: 1.5px solid rgba(92,31,60,0.12);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    color: var(--texte);
+  }
+
+  .radio-option:hover {
+    border-color: var(--rose);
+    background: var(--rose-light);
+  }
+
+  .radio-option input[type="radio"] {
+    accent-color: var(--prune);
+    width: 16px; height: 16px; flex-shrink: 0;
+  }
+
+  .radio-option input[type="radio"]:checked + span {
+    color: var(--prune); font-weight: 500;
+  }
+
+  /* CONSENTEMENT */
+  .consentement {
+    background: var(--rose-light);
+    border: 1px solid rgba(212,133,154,0.3);
+    border-radius: 14px;
+    padding: 1.25rem 1.2rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .consentement-titre {
+    font-size: 0.8rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--prune); margin-bottom: 0.75rem;
+  }
+
+  .checkbox-option {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--texte-doux);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .checkbox-option:last-child { margin-bottom: 0; }
+
+  .checkbox-option input[type="checkbox"] {
+    accent-color: var(--prune);
+    width: 16px; height: 16px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+
+  /* BOUTON SUBMIT */
+  .btn-submit {
+    width: 100%;
+    background: var(--prune);
+    color: white;
+    border: none;
+    padding: 1.1rem 2rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 6px 24px rgba(92,31,60,0.25);
+    letter-spacing: 0.02em;
+  }
+
+  .btn-submit:hover {
+    background: var(--prune-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(92,31,60,0.3);
+  }
+
+  /* CONFIRMATION */
+  .confirmation {
+    display: none;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .confirmation-fleur { font-size: 3rem; margin-bottom: 1rem; }
+
+  .confirmation-titre {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--prune);
+    margin-bottom: 0.75rem;
+  }
+
+  .confirmation-texte {
+    font-size: 0.95rem;
+    color: var(--texte-doux);
+    line-height: 1.75;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--texte);
+    color: rgba(255,255,255,0.5);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.78rem;
+    line-height: 1.7;
+  }
+
+  footer strong {
+    color: var(--dore-light);
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ANIMATIONS */
+  .hero > * {
+    animation: fadeUp 0.6s ease both;
+    opacity: 0;
+  }
+  .hero-marque { animation-delay: 0.05s; }
+  .hero-fleur { animation-delay: 0.1s; }
+  .hero-titre { animation-delay: 0.2s; }
+  .hero-sous { animation-delay: 0.3s; }
+  .hero-note { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-marque">La Quinqua Fêlée™ · Guadeloupe</p>
+  <div class="hero-fleur">🌺</div>
+  <h1 class="hero-titre">Ton vécu <em>compte.</em></h1>
+  <p class="hero-sous">Tes mots pourraient aider d'autres femmes à se reconnaître, à se sentir moins seules — et à traverser cette étape autrement.</p>
+  <span class="hero-note">🔒 Confidentiel · Anonymat possible</span>
+</section>
+
+<!-- INTRO -->
+<div class="intro">
+  <p class="intro-texte">
+    Je prépare un livre sur <strong>les transformations après 45 ans</strong> — ménopause, réinvention, corps qui change, vie qui bouge.<br><br>
+    Si tu veux partager ton expérience, tes mots seront précieux. Tu peux rester anonyme. Tu choisis ce que tu partages.
+  </p>
+  <div class="separateur"></div>
+</div>
+
+<!-- FORMULAIRE -->
+<div class="form-wrapper">
+  <form id="temoignageForm" action="https://formspree.io/f/mbdbaklv" method="POST">
+
+    <!-- Q1 : Prénom ou pseudo -->
+    <div class="form-group">
+      <label class="form-label" for="prenom">Comment puis-je t'appeler ?</label>
+      <p class="form-hint">Ton prénom, un pseudo, ou simplement "Anonyme" — c'est toi qui choisis.</p>
+      <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Marie, ou Anonyme…">
+    </div>
+
+    <!-- Q2 : Âge -->
+    <div class="form-group">
+      <label class="form-label" for="age">Quel âge as-tu ?</label>
+      <input class="form-input" type="text" id="age" name="age" placeholder="Ex : 52 ans">
+    </div>
+
+    <!-- Q3 : Où en es-tu -->
+    <div class="form-group">
+      <label class="form-label">Où en es-tu dans ta traversée ?</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="etape" value="perimenopaause">
+          <span>Je sens que quelque chose change — périménopause</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="etape" value="menopause">
+          <span>Je suis en ménopause</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="etape" value="postmenopause">
+          <span>Je suis de l'autre côté — postménopause</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="etape" value="incertain">
+          <span>Je ne sais pas encore où j'en suis</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Q4 : Ce que tu as vécu -->
+    <div class="form-group">
+      <label class="form-label" for="vecu">Qu'est-ce que tu as traversé — ou que tu traverses encore ?</label>
+      <p class="form-hint">Symptômes, émotions, changements dans ta vie quotidienne, au travail, dans ton couple, avec ton corps… Dis-le avec tes mots.</p>
+      <textarea class="form-textarea grande" id="vecu" name="vecu" placeholder="Prends le temps qu'il te faut…"></textarea>
+    </div>
+
+    <!-- Q5 : Ce qui a aidé -->
+    <div class="form-group">
+      <label class="form-label" for="aide">Qu'est-ce qui t'a aidée — ou ce qui t'aurait aidée ?</label>
+      <p class="form-hint">Une information, une rencontre, une plante, un livre, un espace de parole… ou ce qui t'a manqué.</p>
+      <textarea class="form-textarea" id="aide" name="aide" placeholder="Ce qui a fait la différence, ou ce que tu aurais voulu trouver…"></textarea>
+    </div>
+
+    <!-- Q6 : Message libre -->
+    <div class="form-group">
+      <label class="form-label" for="message">Y a-t-il quelque chose que tu voudrais dire aux femmes qui arrivent derrière toi ?</label>
+      <textarea class="form-textarea" id="message" name="message" placeholder="Un mot, une phrase, un conseil du cœur…"></textarea>
+    </div>
+
+    <!-- CONSENTEMENT -->
+    <div class="consentement">
+      <p class="consentement-titre">🌸 Avant d'envoyer</p>
+      <label class="checkbox-option">
+        <input type="checkbox" name="consent_livre" value="oui" required>
+        <span>J'accepte que mon témoignage puisse être utilisé dans le cadre du livre La Quinqua Fêlée™, de façon anonyme ou avec mon prénom si je l'ai indiqué.</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" name="consent_autres" value="oui">
+        <span>J'accepte aussi que mon témoignage puisse être partagé sur les supports de La Quinqua Fêlée™ (réseaux, ateliers) — toujours de façon bienveillante.</span>
+      </label>
+    </div>
+
+    <!-- CONTACT OPTIONNEL -->
+    <div class="form-group">
+      <label class="form-label" for="email">Veux-tu être tenue informée de la parution du livre ? <span style="font-style:normal;font-size:0.85rem;color:var(--texte-doux)">(facultatif)</span></label>
+      <input class="form-input" type="email" id="email" name="email" placeholder="ton@email.fr — facultatif">
+    </div>
+
+    <button type="submit" class="btn-submit">🌺 Envoyer mon témoignage</button>
+  </form>
+
+  <!-- CONFIRMATION -->
+  <div class="confirmation" id="confirmation">
+    <div class="confirmation-fleur">🌺</div>
+    <h2 class="confirmation-titre">Merci du fond du cœur.</h2>
+    <p class="confirmation-texte">Ton témoignage a bien été reçu. Il contribuera à aider d'autres femmes à se reconnaître et à traverser cette étape autrement.<br><br>
+    Si tu as laissé ton email, tu seras parmi les premières informées de la parution du livre.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>La Quinqua Fêlée™</strong>
+  Digilearn Pro · Guadeloupe<br>
+  Contenus pédagogiques et informatifs. Ne remplacent pas un avis médical.
+</footer>
+
+<script>
+  const form = document.getElementById('temoignageForm');
+  const confirmation = document.getElementById('confirmation');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        confirmation.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert('Une erreur est survenue. Merci de réessayer ou de me contacter sur WhatsApp.');
+      }
+    } catch {
+      alert('Problème de connexion. Merci de réessayer.');
+    }
+  });
+</script>
+
+</body>
+</html>
