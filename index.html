@@ -143,8 +143,9 @@ nav {
   background: var(--white);
   border: 3px solid rgba(181,33,90,0.15);
   display: flex; align-items: center; justify-content: center;
-  font-size: 10rem; position: relative;
+  position: relative;
   box-shadow: 0 30px 80px rgba(181,33,90,0.12);
+  overflow: hidden;
 }
 .hero-badge {
   position: absolute; bottom: 20px; right: -20px;
@@ -525,7 +526,7 @@ footer {
   .hero-bg-shape { display: none; }
   .hero-left { padding: 6rem 2rem 2rem; }
   .hero-right { padding: 2rem; }
-  .hero-illustration { width: 240px; height: 240px; font-size: 7rem; }
+  .hero-illustration { width: 240px; height: 240px; object-fit: cover; border-radius: 50%; }
   .offres-grid { grid-template-columns: 1fr; }
   .approche-grid { grid-template-columns: 1fr; }
   .programme-inner, .alizee-inner, .solidaire-inner, .contact-inner {
@@ -586,8 +587,8 @@ footer {
   </div>
   <div class="hero-right">
     <div class="hero-illustration">
-      🌺
-      <div class="hero-badge">✦ Digilearn Pro</div>
+      <img src="./La_sage_LQF.png" alt="La Quinqua Fêlée" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      <div class="hero-badge">🌺 La Quinqua Fêlée™</div>
     </div>
   </div>
 </section>
@@ -595,7 +596,7 @@ footer {
 <!-- BRAND STRIP -->
 <div class="brand-strip">
   <div class="brand-item"><span class="brand-dot"></span>Livre Ménopause Créole</div>
-  <div class="brand-item"><span class="brand-dot"></span>Application Alizée (en développement)</div>
+  
   <div class="brand-item"><span class="brand-dot"></span>Partenariat Tramil · Aplamedarom · ORSAG</div>
   <div class="brand-item"><span class="brand-dot"></span>Validé médicalement</div>
 </div>
@@ -622,7 +623,7 @@ footer {
     <div class="offre-card b2b">
       <div class="offre-tag">B2B · Entreprises</div>
       <div class="offre-icon">🏢</div>
-      <div class="offre-title">Ménopause & Performance</div>
+      <div class="offre-title">Femmes 45+ au travail</div>
       <p class="offre-desc">Programme clé en main pour les entreprises qui veulent retenir et soutenir leurs collaboratrices de 45 ans et plus.</p>
       <ul class="offre-items">
         <li>Conférence sensibilisation RH</li>
@@ -660,7 +661,7 @@ footer {
         <div class="atelier-num">01</div>
         <div class="atelier-body">
           <div class="atelier-title">Cercle de paroles</div>
-          <div class="atelier-desc">Exprimer ses maux, briser l'isolement. Parce que nommer, c'est déjà commencer à guérir.</div>
+          <div class="atelier-desc">Exprimer ses maux, briser l'isolement. Parce que nommer, c'est déjà commencer à avancer.</div>
         </div>
       </div>
       <div class="atelier-item">
@@ -807,7 +808,7 @@ footer {
         <div class="solidaire-num">3</div>
         <div class="solidaire-content">
           <div class="solidaire-card-title">Cuisine végétale hormonale (×2)</div>
-          <div class="solidaire-card-desc">Cuisiner local pour soutenir ses hormones naturellement</div>
+          <div class="solidaire-card-desc">Cuisiner local pour soutenir son confort et son équilibre au quotidien</div>
         </div>
       </div>
       <div class="solidaire-card">
@@ -836,7 +837,7 @@ footer {
     <div class="approche-item">
       <div class="approche-icon">🌿</div>
       <div class="approche-title">Pharmacopée créole validée</div>
-      <p class="approche-desc">Chaque plante recommandée est validée scientifiquement en partenariat avec l'Aplamedarom et le réseau Tramil — 625 plantes médicinales répertoriées en Guadeloupe.</p>
+      <p class="approche-desc">Les plantes abordées sont issues des savoirs créoles, documentées avec l'Aplamedarom et le réseau Tramil — 625 plantes médicinales répertoriées en Guadeloupe, abordées avec prudence.</p>
     </div>
     <div class="approche-item">
       <div class="approche-icon">🩺</div>
@@ -927,7 +928,7 @@ footer {
 <footer>
   <div>
     <div class="footer-brand">La Quinqua Fêlée</div>
-    <div class="footer-tagline">Digilearn Pro · Ménopause Créole · Application Alizée</div>
+    <div class="footer-tagline">Digilearn Pro · Ménopause Créole</div>
   </div>
   <div class="footer-links">
     <a href="#offres">Offres</a>
