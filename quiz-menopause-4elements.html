@@ -1181,9 +1181,9 @@ function setJ(dim, val, btn) {
   jData[dim] = val;
   var dots = btn.parentElement.querySelectorAll(".j-dot");
   for (var i = 0; i < dots.length; i++) {
-    if (i < val) { dots[i].classList.add("active"); }
-    else { dots[i].classList.remove("active"); }
+    dots[i].classList.remove("active");
   }
+  btn.classList.add("active");
 }
 
 function submitJournal() {
@@ -1208,7 +1208,7 @@ function getProfilText() {
   return p.symbol + " " + p.title + " — " + p.subtitle
     + "\n\nMix elementaire :\nEau " + pct("eau") + "% · Feu " + pct("feu") + "% · Terre " + pct("terre") + "% · Air " + pct("air") + "%"
     + "\n\nPlantes alliees : " + p.plantes.map(function(pl){ return pl.nom; }).join(", ")
-    + "\n\nDecouvrez votre profil : brilliant-dodol-e8a103.netlify.app/quiz";
+    + "\n\nDecouvrez votre profil : laquinquafelee.fr/quiz";
 }
 
 function copyProfil() {
@@ -1219,7 +1219,7 @@ function copyProfil() {
 
 function shareWa() {
   var text = encodeURIComponent(getProfilText());
-  window.open("https://wa.me/?text=" + text, "_blank");
+  window.open("https://api.whatsapp.com/send?text=" + text, "_blank");
 }
 
 </script>
