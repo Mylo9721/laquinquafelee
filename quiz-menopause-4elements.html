@@ -750,6 +750,10 @@
           <button class="j-dot" onclick="setJ('s',5,this)">&#128564;</button>
         </div>
       </div>
+      <div class="journal-item" style="margin-top:12px;">
+        <div class="journal-label">Recevoir mon journal par email <span style="font-weight:300;font-size:11px;">(facultatif)</span></div>
+        <input type="email" id="journalEmail" placeholder="ton@email.fr" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid #e8e0d0;font-family:inherit;font-size:14px;margin-top:4px;outline:none;">
+      </div>
       <button class="journal-submit" id="journalBtn" onclick="submitJournal()">Enregistrer mon journal</button>
       <div class="journal-confirm" id="journalConfirm"></div>
     </div>
@@ -1193,8 +1197,37 @@ function submitJournal() {
     conf.style.color = "#c45c3a";
     return;
   }
-  conf.textContent = "Journal enregistre — prenez soin de vous";
-  conf.style.color = "#B5215A";
+  var email = document.getElementById("journalEmail").value;
+  var energieLabels = ["","😴","😟","😐","🙂","⚡"];
+  var humeurLabels = ["","😢","😕","😐","😊","😄"];
+  var sommeilLabels = ["","😵","😣","😴","😌","✨"];
+
+  if (email) {
+    var formData = new FormData();
+    formData.append("email", email);
+    formData.append("_subject", "Mon journal du jour — La Quinqua Fêlée");
+    formData.append("Energie", energieLabels[jData.e] + " (" + jData.e + "/5)");
+    formData.append("Humeur", humeurLabels[jData.h] + " (" + jData.h + "/5)");
+    formData.append("Sommeil", sommeilLabels[jData.s] + " (" + jData.s + "/5)");
+    formData.append("Profil", getProfilText());
+    fetch("https://formspree.io/f/mbdbaklv", {
+      method: "POST", body: formData,
+      headers: { "Accept": "application/json" }
+    }).then(function(r) {
+      if (r.ok) {
+        conf.textContent = "Journal envoyé à " + email + " 🌺";
+      } else {
+        conf.textContent = "Journal enregistré — prenez soin de vous 🌺";
+      }
+      conf.style.color = "#B5215A";
+    }).catch(function() {
+      conf.textContent = "Journal enregistré — prenez soin de vous 🌺";
+      conf.style.color = "#B5215A";
+    });
+  } else {
+    conf.textContent = "Journal enregistré — prenez soin de vous 🌺";
+    conf.style.color = "#B5215A";
+  }
   document.getElementById("journalBtn").disabled = true;
   document.getElementById("journalBtn").style.opacity = "0.5";
 }
