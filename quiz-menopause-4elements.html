@@ -660,7 +660,17 @@
 
   <!-- START BUTTON -->
   <div id="startSection" style="text-align:center; margin-top: 8px;">
-    <button class="btn btn-next" onclick="startQuiz()" style="padding: 16px 40px; font-size: 15px;">
+    <div style="max-width:400px;margin:0 auto 20px;text-align:left;">
+      <div style="margin-bottom:12px;">
+        <label style="font-size:14px;color:#5C1F3C;font-weight:500;display:block;margin-bottom:4px;">Votre prénom <span style="font-weight:300;font-size:12px;">(facultatif)</span></label>
+        <input id="lqf-prenom" type="text" placeholder="Marie…" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid #e8e0d0;font-family:inherit;font-size:14px;outline:none;">
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="font-size:14px;color:#5C1F3C;font-weight:500;display:block;margin-bottom:4px;">Votre email <span style="font-weight:300;font-size:12px;">(pour recevoir votre profil)</span></label>
+        <input id="lqf-email" type="email" placeholder="votre@email.fr" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid #e8e0d0;font-family:inherit;font-size:14px;outline:none;">
+      </div>
+    </div>
+    <button class="btn btn-next" onclick="savePrenomEmail(); startQuiz();" style="padding: 16px 40px; font-size: 15px;">
       Commencer le quiz →
     </button>
   </div>
@@ -672,6 +682,7 @@
       <h2>Votre profil<br><em>ménopause</em></h2>
       <p>Une lecture personnalisée de votre transition</p>
     </div>
+    <div id="lqf-signature" style="display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:#5C1F3C;text-align:center;padding:12px 20px;margin-bottom:16px;border-left:3px solid #C9A84C;background:rgba(201,168,76,0.08);border-radius:0 8px 8px 0;"></div>
     <div class="dominant-card" id="dominantCard">
       <div class="dominant-label" id="dominantLabel"></div>
       <div class="dominant-title" id="dominantTitle"></div>
@@ -1090,6 +1101,13 @@ function calcScores() {
   });
 }
 
+function savePrenomEmail() {
+  const p = document.getElementById('lqf-prenom');
+  const e = document.getElementById('lqf-email');
+  if (p) localStorage.setItem('lqf_prenom', p.value);
+  if (e) localStorage.setItem('lqf_email', e.value);
+}
+
 function showResults() {
   calcScores();
   const total = Object.values(scores).reduce((a, b) => a + b, 0);
@@ -1150,6 +1168,35 @@ function showResults() {
     `;
     plantesList.appendChild(div);
   });
+
+  // Envoi au Worker LQF
+  const mapElement = { eau: 'A', feu: 'B', terre: 'C', air: 'D' };
+  const answersLQF = answers.map((answerIndex, qIndex) => {
+    if (answerIndex === null) return null;
+    const element = questions[qIndex].options[answerIndex].element;
+    return mapElement[element];
+  }).filter(r => r !== null);
+
+  const firstNameVal = localStorage.getItem('lqf_prenom') || '';
+  const emailVal = localStorage.getItem('lqf_email') || '';
+
+  fetch('https://lqf-quiz-menopause.laquinquafelee.workers.dev/quiz-result', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      firstName: firstNameVal,
+      email: emailVal,
+      answers: answersLQF
+    })
+  }).then(r => r.json()).then(data => {
+    if (data.result && data.result.signature) {
+      const sigEl = document.getElementById('lqf-signature');
+      if (sigEl) {
+        sigEl.textContent = data.result.signature;
+        sigEl.style.display = 'block';
+      }
+    }
+  }).catch(() => {});
 }
 
 function restartQuiz() {
