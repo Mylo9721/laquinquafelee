@@ -1177,8 +1177,8 @@ function showResults() {
     return mapElement[element];
   }).filter(r => r !== null);
 
-  const firstNameVal = localStorage.getItem('lqf_prenom') || '';
-  const emailVal = localStorage.getItem('lqf_email') || '';
+  const firstNameVal = document.getElementById('lqf-prenom')?.value || localStorage.getItem('lqf_prenom') || '';
+  const emailVal = document.getElementById('lqf-email')?.value || localStorage.getItem('lqf_email') || '';
 
   fetch('https://lqf-quiz-menopause.laquinquafelee.workers.dev/quiz-result', {
     method: 'POST',
