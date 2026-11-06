@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Quinqua Fêlée — Ménopause Créole</title>
+<title>La Quinqua Fêlée — Maison de Transmission</title>
+<meta name="description" content="Maison de Transmission ancrée en Guadeloupe : ateliers, rencontres et interventions auprès des organisations autour des transformations vécues par les femmes après 45 ans.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -452,6 +453,26 @@ footer {
   footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
   .brand-strip { padding: 1rem 1.5rem; gap: 1.5rem; }
 }
+
+section[id] { scroll-margin-top: 6rem; }
+/* Offre aux organisations */
+.offre-lien { display:inline-block; margin-top:1rem; color:var(--magenta); font-weight:500; text-underline-offset:.2em; }
+.entreprises-section { background:var(--cream); }
+.entreprises-intro, .qvct-cadre, .qvct-contact { max-width:900px; margin:1.5rem auto; }
+.entreprises-intro p, .qvct-cadre p, .qvct-contact p { margin:.75rem 0; line-height:1.8; color:var(--text-mid); }
+.qvct-formats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; margin-top:2rem; }
+.qvct-carte { background:var(--white); border:1px solid rgba(196,154,42,.25); border-radius:18px; padding:1.5rem; }
+.qvct-etape { color:var(--magenta); font-weight:600; font-size:.8rem; letter-spacing:.05em; margin-bottom:.75rem; }
+.qvct-carte h3 { font-family:'Playfair Display',serif; font-size:1.3rem; line-height:1.4; margin-bottom:1rem; }
+.qvct-carte dt { font-size:.85rem; font-weight:600; color:var(--dark); margin-top:1rem; }
+.qvct-carte dd { font-size:.9rem; color:var(--text-mid); line-height:1.7; margin-top:.3rem; }
+.qvct-cadre { border-left:3px solid var(--gold); padding:1rem 1.5rem; background:var(--white); }
+.qvct-cadre h3, .qvct-contact h3 { font-family:'Playfair Display',serif; line-height:1.4; }
+.qvct-contact { text-align:center; padding-top:1rem; }
+.qvct-contact .btn-primary { display:inline-block; margin:.75rem 0; }
+a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
+@media(max-width:980px){ .qvct-formats { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -461,27 +482,28 @@ footer {
   <ul class="nav-links">
     <li><a href="#ateliers-lqf">Nos ateliers</a></li>
     <li><a href="#programme">MenO'Essence</a></li>
+    <li><a href="#entreprises">Entreprises</a></li>
     <li><a href="#solidaire">Volet solidaire</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="/quiz-ateliers" class="nav-cta">🌺 Faire le quiz</a>
+  <a href="/quiz-menopause-4elements.html" class="nav-cta">🌺 Faire le quiz</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="accueil">
   <div class="hero-bg-shape"></div>
   <div class="hero-left">
-    <div class="hero-eyebrow">🌺 Ménopause Créole · Guadeloupe</div>
+    <div class="hero-eyebrow">🌺 Maison de Transmission · Guadeloupe</div>
     <h1 class="hero-title">
-      La ménopause,<br>
-      <em>traversée autrement.</em>
+      Comprendre. Nourrir.<br>
+      <em>Honorer.</em>
     </h1>
     <p class="hero-sub">
-      Accompagnement des femmes de <strong>45 ans et plus</strong> dans leurs transitions de vie — avec les plantes, les savoirs et la force de notre culture créole.
+      Une Maison de Transmission pour les femmes de <strong>45 ans et plus</strong>. Faire dialoguer savoirs créoles, connaissances documentées et expériences vécues pour éclairer les transitions personnelles, professionnelles et sociales.
     </p>
     <div class="hero-actions">
-      <a href="/quiz-ateliers" class="btn-primary">🌺 Faire le quiz</a>
-      <a href="#programme" class="btn-secondary">Découvrir MenO'Essence</a>
+      <a href="/quiz-menopause-4elements.html" class="btn-primary">🌺 Faire le quiz</a>
+      <a href="/quiz-ateliers.html" class="btn-secondary">Découvrir les ateliers</a>
     </div>
     <div class="hero-proof">
       <div class="proof-item">
@@ -515,8 +537,8 @@ footer {
 
 <!-- OFFRES -->
 <section class="offres" id="ateliers-lqf">
-  <div class="section-eyebrow">Nos ateliers</div>
-  <h2 class="section-title">Des ateliers <em>pour chacune</em></h2>
+  <div class="section-eyebrow">Ateliers, rencontres et interventions</div>
+  <h2 class="section-title">Trois entrées, <em>une même démarche de transmission</em></h2>
   <p class="section-lead">Que vous soyez une femme en transition, une entreprise soucieuse de ses collaboratrices, ou une structure sociale — il y a un chemin pour vous.</p>
   <div class="offres-grid">
     <div class="offre-card b2c">
@@ -527,22 +549,24 @@ footer {
       <ul class="offre-items">
         <li>4 ateliers thématiques de 3h</li>
         <li>Petit groupe bienveillant</li>
-        <li>Approches naturelles & créoles</li>
-        <li>Lamentin, Guadeloupe</li>
+        <li>Échanges, pratiques et ressources créoles</li>
+        <li>Prochaine programmation à venir</li>
       </ul>
-      <div class="offre-prix">200€ <span>cycle complet · ou 60€/atelier</span></div>
+      <div class="offre-prix">Dates et tarifs <span>communiqués lors de la prochaine programmation</span></div>
     </div>
     <div class="offre-card b2b">
-      <div class="offre-tag">B2B · Entreprises</div>
-      <div class="offre-icon">🏢</div>
-      <div class="offre-title">Femmes 45+ au travail</div>
-      <p class="offre-desc">Programme clé en main pour les entreprises qui veulent retenir et soutenir leurs collaboratrices de 45 ans et plus.</p>
+      <div class="offre-tag">Entreprises · CSE · Collectivités</div>
+      <div class="offre-icon" aria-hidden="true">🏢</div>
+      <h3 class="offre-title">Femmes 45+ au travail</h3>
+      <p class="offre-desc">Comprendre les transitions et favoriser des conditions de travail adaptées. Des interventions pédagogiques pour les équipes, les managers et les personnes ressources RH.</p>
       <ul class="offre-items">
-        <li>Conférence sensibilisation RH</li>
-        <li>Ateliers bien-être au travail</li>
-        <li>Programme personnalisé en ligne</li>
+        <li>Sensibilisation et échanges</li>
+        <li>Ateliers à partir de situations de travail</li>
+        <li>Accompagnement d’une démarche QVCT</li>
+        <li>Supports et suivi définis selon la mission</li>
       </ul>
-      <div class="offre-prix">Sur devis <span>· à partir de 1 200€</span></div>
+      <div class="offre-prix">Sur devis <span>· après échange sur vos besoins</span></div>
+      <a href="#entreprises" class="offre-lien">Découvrir les trois formats →</a>
     </div>
     <div class="offre-card solidaire">
       <div class="offre-tag">Solidaire · Centres sociaux</div>
@@ -552,12 +576,71 @@ footer {
       <ul class="offre-items">
         <li>Cercle de paroles</li>
         <li>Atelier ménopause & corps</li>
-        <li>Cuisine végétale hormonale (×2)</li>
+        <li>Alimentation de confort et ressources créoles (×2)</li>
         <li>Reconnaissance des plantes</li>
         <li>Atelier réinvention</li>
       </ul>
       <div class="offre-prix">Tarif <span>adapté aux structures</span></div>
     </div>
+  </div>
+</section>
+
+
+<!-- ENTREPRISES : OFFRE QVCT -->
+<section class="entreprises-section" id="entreprises" aria-labelledby="entreprises-titre">
+  <div class="section-eyebrow">La transmission au service du collectif de travail</div>
+  <h2 class="section-title" id="entreprises-titre">Femmes 45+ au travail :<br><em>comprendre les transitions</em></h2>
+  <p class="section-lead">Donner des repères aux équipes, faire dialoguer les expériences et explorer des conditions de travail adaptées.</p>
+  <div class="entreprises-intro">
+    <p>La fatigue, les difficultés de concentration, la charge mentale ou les changements de place dans la vie professionnelle peuvent soulever des questions au travail. La ménopause peut être abordée explicitement selon la demande, dans une démarche pédagogique et non médicale.</p>
+    <p>La Quinqua Fêlée, Maison de Transmission ancrée en Guadeloupe, met en dialogue connaissances, expériences vécues et outils pédagogiques. Les échanges portent sur les situations de travail et les ressources mobilisables, dans le respect du choix de chacune de partager ou non son vécu.</p>
+  </div>
+  <div class="qvct-formats">
+    <article class="qvct-carte" aria-labelledby="qvct-sensibiliser">
+      <p class="qvct-etape">01 · Sensibiliser</p>
+      <h3 id="qvct-sensibiliser">Des repères pour ouvrir le dialogue</h3>
+      <dl>
+        <dt>Pour qui ?</dt><dd>Équipes mixtes, managers, RH et représentants du personnel.</dd>
+        <dt>Objectif</dt><dd>Distinguer idées reçues et repères utiles, puis identifier les personnes ressources au sein de la structure.</dd>
+        <dt>Format et durée</dt><dd>Conférence interactive et temps d’échange. Durée précisée dans la proposition selon le public et le sujet retenus.</dd>
+        <dt>Supports remis</dt><dd>Une fiche mémo avec les repères abordés et les relais identifiés lors du cadrage.</dd>
+        <dt>Repère d’évaluation</dt><dd>Les participants peuvent citer un repère nouveau et un interlocuteur vers qui s’orienter.</dd>
+      </dl>
+    </article>
+    <article class="qvct-carte" aria-labelledby="qvct-outiller">
+      <p class="qvct-etape">02 · Outiller</p>
+      <h3 id="qvct-outiller">Des situations concrètes aux pistes d’action</h3>
+      <dl>
+        <dt>Pour qui ?</dt><dd>Managers, équipes ou personnes ressources, réunis selon les besoins de la structure.</dd>
+        <dt>Objectif</dt><dd>Analyser une situation de travail et formuler un ajustement possible ou une demande de soutien.</dd>
+        <dt>Format et durée</dt><dd>Atelier participatif à partir de cas et d’exercices. Durée et taille du groupe définies après échange.</dd>
+        <dt>Supports remis</dt><dd>Une grille de réflexion et une fiche pour préparer une action ou un échange avec les personnes concernées.</dd>
+        <dt>Repère d’évaluation</dt><dd>Le groupe formule une piste d’action et identifie avec qui en examiner la faisabilité.</dd>
+      </dl>
+    </article>
+    <article class="qvct-carte" aria-labelledby="qvct-accompagner">
+      <p class="qvct-etape">03 · Accompagner une démarche</p>
+      <h3 id="qvct-accompagner">Construire une suite adaptée à votre structure</h3>
+      <dl>
+        <dt>Pour qui ?</dt><dd>Direction, RH, CSE ou personne référente souhaitant articuler plusieurs actions.</dd>
+        <dt>Objectif</dt><dd>Clarifier les besoins, choisir des actions pédagogiques et organiser leur suivi avec les acteurs internes.</dd>
+        <dt>Format et durée</dt><dd>Recueil des besoins, interventions ciblées, synthèse et point de suivi. Périmètre et calendrier définis sur devis.</dd>
+        <dt>Supports remis</dt><dd>Une synthèse des besoins collectifs et une proposition de feuille de route précisant les actions et les points de suivi.</dd>
+        <dt>Repère d’évaluation</dt><dd>La structure dispose d’une prochaine action, d’un responsable identifié et d’un point de suivi convenu.</dd>
+      </dl>
+    </article>
+  </div>
+  <div class="qvct-cadre">
+    <h3>Comprendre · Nourrir · Honorer</h3>
+    <p><strong>Comprendre</strong> les transformations et les situations de travail. <strong>Nourrir</strong> la réflexion avec des outils et des ressources. <strong>Honorer</strong> les expériences, les parcours et les savoirs des femmes.</p>
+    <p>Chaque proposition précise le public, les objectifs, la durée, les supports, les modalités d’évaluation, le suivi et la structure qui porte la prestation. Les interventions s’articulent avec les acteurs de prévention et de santé au travail, dans le respect de leurs missions.</p>
+    <p>Ces prestations sont pédagogiques : elles ne comportent ni diagnostic médical, ni prescription, ni recueil de récits médicaux individuels. Les situations collectives peuvent être travaillées à partir de cas fictifs.</p>
+  </div>
+  <div class="qvct-contact">
+    <h3>Quel besoin souhaitez-vous travailler ?</h3>
+    <p>Indiquez votre structure, le public concerné et la question que vous souhaitez aborder. Un premier échange permet de préciser le format avant toute proposition.</p>
+    <a href="https://wa.me/590690701398?text=Bonjour%2C%20je%20souhaite%20%C3%A9changer%20sur%20une%20intervention%20Femmes%2045%2B%20au%20travail.%20Ma%20structure%20%3A%20" class="btn-primary">Échanger sur votre besoin</a>
+    <p><a href="mailto:laquinquafelee@gmail.com?subject=Demande%20entreprise%20%E2%80%94%20Femmes%2045%2B%20au%20travail">Ou nous écrire par e-mail</a></p>
   </div>
 </section>
 
@@ -578,8 +661,8 @@ footer {
       <div class="atelier-item">
         <div class="atelier-num">02</div>
         <div class="atelier-body">
-          <div class="atelier-title">Human design & Cuisine végétale hormonale locale</div>
-          <div class="atelier-desc">Comprendre ses ressources innées et nourrir son corps avec les aliments pays. Igname, christophine, calalou…</div>
+          <div class="atelier-title">Exploration de soi & alimentation de confort créole</div>
+          <div class="atelier-desc">Explorer ses ressources personnelles et découvrir des repères alimentaires avec les produits locaux. Igname, christophine, calalou…</div>
         </div>
       </div>
       <div class="atelier-item">
@@ -599,18 +682,11 @@ footer {
     </div>
     <div class="programme-info">
       <div class="info-card">
-        <div class="info-card-title">Prochaines dates</div>
-        <div class="info-row"><span class="info-icon">📅</span><div><strong>11 avril 2026</strong> — Atelier 1<br><strong>09 mai 2026</strong> — Atelier 2<br><strong>20 juin 2026</strong> — Atelier 3<br><strong>18 juillet 2026</strong> — Atelier 4</div></div>
-        <div class="info-row"><span class="info-icon">🕘</span><span>09h à 12h · La Maison Mérâki, Gosier</span></div>
-        <div class="info-row"><span class="info-icon">👥</span><span>Petit groupe — 6 expertes impliquées</span></div>
-        <div class="tarif-box">
-          <div class="tarif-main">200€</div>
-          <div class="tarif-sub">Cycle complet · 2 paiements possibles</div>
-          <div class="tarif-or">— ou —</div>
-          <div class="tarif-unit">60€ / atelier à l'essai</div>
-        </div>
+        <div class="info-card-title">Une prochaine rencontre ?</div>
+        <p>Aucune date n’est programmée à ce jour. Le lieu, les modalités, les intervenantes et les tarifs seront précisés lorsque la prochaine session sera confirmée.</p>
+        <p style="margin-top:1rem;">Tu peux nous faire part de ton intérêt, sans réservation ni engagement.</p>
       </div>
-      <a href="https://wa.me/590690701398" class="btn-primary" style="text-align:center;display:block;">Réserver par WhatsApp ↗</a>
+      <a href="https://wa.me/590690701398?text=Bonjour%2C%20le%20parcours%20MenO%27Essence%20m%27int%C3%A9resse.%20Je%20souhaite%20en%20savoir%20plus." class="btn-primary" style="text-align:center;display:block;">Manifester mon intérêt ↗</a>
     </div>
   </div>
 </section>
@@ -645,7 +721,7 @@ footer {
       <div class="solidaire-card">
         <div class="solidaire-num">3</div>
         <div class="solidaire-content">
-          <div class="solidaire-card-title">Cuisine végétale hormonale (×2)</div>
+          <div class="solidaire-card-title">Alimentation de confort et ressources créoles (×2)</div>
           <div class="solidaire-card-desc">Cuisiner local pour soutenir son confort et son équilibre au quotidien</div>
         </div>
       </div>
@@ -653,7 +729,7 @@ footer {
         <div class="solidaire-num">4</div>
         <div class="solidaire-content">
           <div class="solidaire-card-title">Reconnaissance des plantes</div>
-          <div class="solidaire-card-desc">Les rimèd razyé de nos grand-mères, revisités</div>
+          <div class="solidaire-card-desc">Savoirs transmis, identification et précautions d’usage</div>
         </div>
       </div>
       <div class="solidaire-card">
@@ -751,11 +827,12 @@ footer {
 <footer>
   <div>
     <div class="footer-brand">La Quinqua Fêlée</div>
-    <div class="footer-tagline">Digilearn Pro · Ménopause Créole</div>
+    <div class="footer-tagline">Maison de Transmission · Guadeloupe</div>
   </div>
   <div class="footer-links">
     <a href="#ateliers-lqf">Nos ateliers</a>
     <a href="#programme">MenO'Essence</a>
+    <a href="#entreprises">Entreprises</a>
     <a href="#solidaire">Solidaire</a>
     <a href="#contact">Contact</a>
     <a href="#">Mentions légales</a>
