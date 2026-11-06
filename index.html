@@ -140,13 +140,16 @@ nav {
   position: relative; z-index: 2; padding: 4rem 3rem;
 }
 .hero-illustration {
-  width: 340px; height: 340px; border-radius: 50%;
-  background: var(--white);
-  border: 3px solid rgba(181,33,90,0.15);
-  display: flex; align-items: center; justify-content: center;
+  width: min(100%, 380px);
+  height: auto;
+  margin: 0 auto;
   position: relative;
-  box-shadow: 0 30px 80px rgba(181,33,90,0.12);
-  overflow: hidden;
+}
+.hero-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 .hero-badge {
   position: absolute; bottom: 20px; right: -20px;
@@ -441,7 +444,7 @@ footer {
   .hero-bg-shape { display: none; }
   .hero-left { padding: 6rem 2rem 2rem; }
   .hero-right { padding: 2rem; }
-  .hero-illustration { width: 240px; height: 240px; object-fit: cover; border-radius: 50%; }
+  .hero-illustration { width: min(100%, 280px); height: auto; }
   .offres-grid { grid-template-columns: 1fr; }
   .approche-grid { grid-template-columns: 1fr; }
   .programme-inner, .solidaire-inner, .contact-inner {
@@ -521,8 +524,8 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-illustration" style="margin:0 auto;">
-      <img src="./La_sage_LQF.png" alt="La Quinqua Fêlée" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+    <div class="hero-illustration">
+      <img src="./La_sage_LQF.png" alt="Logo La Quinqua Fêlée" decoding="async">
     </div>
   </div>
 </section>
