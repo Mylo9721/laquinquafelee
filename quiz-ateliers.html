@@ -495,7 +495,10 @@
     a:focus-visible { outline: 3px solid var(--rose); outline-offset: 5px; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hero > * { animation: none; opacity: 1; } .btn, .atelier-card { transition: none; } }
     .atelier-transmission { grid-column: 1 / -1; border-left-color: var(--rose); background: #fffaf5; }
-  </style>
+  .atelier-terrain{max-width:900px;margin:2rem auto;}
+.atelier-terrain img{display:block;width:100%;height:auto;border-radius:18px;}
+.atelier-terrain figcaption{font-size:.9rem;line-height:1.6;margin-top:.7rem;}
+</style>
 </head>
 <body>
 
@@ -528,6 +531,10 @@
   <div class="separateur"></div>
   <p class="section-sous-titre">Comprendre, nourrir, honorer : des temps d’échange et de pratique, ancrés dans la réalité créole.</p>
   <p class="programmation-note"><strong>Aucune date n’est programmée à ce jour.</strong> Ces thématiques présentent les ateliers envisagés. Les dates, lieux, modalités et tarifs seront communiqués lorsque les sessions seront confirmées.</p>
+  <figure class="atelier-terrain">
+    <img src="./photos/atelier-cuisine.svg" alt="Des participantes réunies en cuisine écoutent une intervenante pendant un atelier collectif." width="1280" height="960" loading="lazy" decoding="async">
+    <figcaption>Nourrir la transmission : un atelier de cuisine et de partage de savoirs.</figcaption>
+  </figure>
   <div class="ateliers-grid">
     <article class="atelier-card">
       <div class="atelier-numero" aria-hidden="true">1</div>
@@ -691,4 +698,5 @@
 
 </body>
 </html>
+
 
