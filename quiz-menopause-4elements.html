@@ -662,15 +662,20 @@
   <div id="startSection" style="text-align:center; margin-top: 8px;">
     <div style="max-width:400px;margin:0 auto 20px;text-align:left;">
       <div style="margin-bottom:12px;">
-        <label style="font-size:14px;color:#5C1F3C;font-weight:500;display:block;margin-bottom:4px;">Votre prénom <span style="font-weight:300;font-size:12px;">(facultatif)</span></label>
+        <label for="lqf-prenom" style="font-size:14px;color:#5C1F3C;font-weight:500;display:block;margin-bottom:4px;">Votre prénom <span style="font-weight:300;font-size:12px;">(facultatif)</span></label>
         <input id="lqf-prenom" type="text" placeholder="Marie…" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid #e8e0d0;font-family:inherit;font-size:14px;outline:none;">
       </div>
       <div style="margin-bottom:16px;">
-        <label style="font-size:14px;color:#5C1F3C;font-weight:500;display:block;margin-bottom:4px;">Votre email <span style="font-weight:300;font-size:12px;">(pour recevoir votre profil)</span></label>
-        <input id="lqf-email" type="email" placeholder="votre@email.fr" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid #e8e0d0;font-family:inherit;font-size:14px;outline:none;">
+        <label for="lqf-email" style="font-size:14px;color:#5C1F3C;font-weight:500;display:block;margin-bottom:4px;">Votre email <span style="font-weight:300;font-size:12px;">(facultatif — pour recevoir votre fiche)</span></label>
+        <input id="lqf-email" type="email" maxlength="254" autocomplete="email" aria-describedby="lqf-mail-notice lqf-start-error" placeholder="votre@email.fr" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid #e8e0d0;font-family:inherit;font-size:14px;outline:none;">
       </div>
     </div>
-    <button class="btn btn-next" onclick="savePrenomEmail(); startQuiz();" style="padding: 16px 40px; font-size: 15px;">
+    <div style="max-width:400px;margin:0 auto 20px;text-align:left;font-size:13px;line-height:1.6;">
+      <label style="display:flex;gap:10px;align-items:flex-start;"><input type="checkbox" id="lqf-mail-consent" style="margin-top:5px;"> <span>Je demande à recevoir par e-mail mon résultat et ma fiche personnalisée et j’accepte la transmission de mon adresse et de mes quatre scores pour cet envoi.</span></label>
+      <p id="lqf-mail-notice" style="margin-top:12px;color:#66565d;">Sans adresse, vous pouvez consulter votre résultat ici. Pour l’envoi demandé, La Quinqua Fêlée utilise Cloudflare et Resend. Le prénom et les réponses détaillées ne sont pas transmis par ce circuit. Les traces techniques de suivi sont conservées moins de 30 jours ; les messages sont traités par le prestataire de messagerie. Aucun abonnement à une newsletter. Pour vos droits : <a href="mailto:laquinquafelee@gmail.com">laquinquafelee@gmail.com</a>. Notice 2026-11-06-public-v1.</p>
+      <p id="lqf-start-error" role="alert" style="color:#9c263e;margin-top:10px;"></p>
+    </div>
+    <button class="btn btn-next" onclick="startQuiz();" style="padding: 16px 40px; font-size: 15px;">
       Commencer le quiz →
     </button>
   </div>
@@ -728,6 +733,15 @@
     </div>
 
 
+    <section class="advice-card" id="lqf-mail-box" hidden aria-labelledby="lqf-mail-heading">
+      <h3 class="advice-title" id="lqf-mail-heading">Votre fiche personnelle par e-mail</h3>
+      <p id="lqf-mail-status" role="status" aria-live="polite" style="line-height:1.7;"></p>
+      <div id="lqf-drink-box" hidden style="margin-top:16px;">
+        <p style="font-size:13px;line-height:1.6;margin-bottom:12px;">Un choix de confort parmi les éléments à égalité, sans effet thérapeutique déduit du quiz.</p>
+        <div id="lqf-drink-choices" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
+      </div>
+      <button id="lqf-mail-retry" type="button" class="btn btn-next" hidden style="margin-top:16px;">Réessayer cet envoi</button>
+    </section>
     <div class="journal-card">
       <div class="journal-title">Journal du jour</div>
       <div class="journal-sub">Comment vous sentez-vous en ce moment ?</div>
@@ -1014,6 +1028,7 @@ let scores = { eau: 0, feu: 0, terre: 0, air: 0 };
 // ─── FUNCTIONS ─────────────────────────────────────────────────────────────────
 
 function startQuiz() {
+  if (!window.LQFMail || !window.LQFMail.validateStart()) return;
   document.getElementById('startSection').classList.add('hidden');
   document.getElementById('progressSection').classList.remove('hidden');
   document.getElementById('quizSection').classList.remove('hidden');
@@ -1101,13 +1116,6 @@ function calcScores() {
   });
 }
 
-function savePrenomEmail() {
-  const p = document.getElementById('lqf-prenom');
-  const e = document.getElementById('lqf-email');
-  if (p) localStorage.setItem('lqf_prenom', p.value);
-  if (e) localStorage.setItem('lqf_email', e.value);
-}
-
 function showResults() {
   calcScores();
   const total = Object.values(scores).reduce((a, b) => a + b, 0);
@@ -1135,9 +1143,9 @@ function showResults() {
   // Bars
   setTimeout(() => {
     ['eau', 'feu', 'terre', 'air'].forEach(el => {
-      const pct = total > 0 ? Math.round((scores[el] / total) * 100) : 0;
+      const pct = total > 0 ? Math.round((scores[el] / total) * 1000) / 10 : 0;
       document.getElementById('bar' + el.charAt(0).toUpperCase() + el.slice(1)).style.width = pct + '%';
-      document.getElementById('pct' + el.charAt(0).toUpperCase() + el.slice(1)).textContent = pct + '%';
+      document.getElementById('pct' + el.charAt(0).toUpperCase() + el.slice(1)).textContent = pct.toLocaleString('fr-FR') + ' %';
     });
   }, 100);
 
@@ -1169,37 +1177,12 @@ function showResults() {
     plantesList.appendChild(div);
   });
 
-  // Envoi au Worker LQF
-  const mapElement = { eau: 'A', feu: 'B', terre: 'C', air: 'D' };
-  const answersLQF = answers.map((answerIndex, qIndex) => {
-    if (answerIndex === null) return null;
-    const element = questions[qIndex].options[answerIndex].element;
-    return mapElement[element];
-  }).filter(r => r !== null);
+  window.LQFMail.prepare(scores);
 
-  const firstNameVal = document.getElementById('lqf-prenom')?.value || localStorage.getItem('lqf_prenom') || '';
-  const emailVal = document.getElementById('lqf-email')?.value || localStorage.getItem('lqf_email') || '';
-
-  fetch('https://lqf-quiz-menopause.laquinquafelee.workers.dev/quiz-result', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      firstName: firstNameVal,
-      email: emailVal,
-      answers: answersLQF
-    })
-  }).then(r => r.json()).then(data => {
-    if (data.result && data.result.signature) {
-      const sigEl = document.getElementById('lqf-signature');
-      if (sigEl) {
-        sigEl.textContent = data.result.signature;
-        sigEl.style.display = 'block';
-      }
-    }
-  }).catch(() => {});
 }
 
 function restartQuiz() {
+  window.LQFMail.reset();
   jData = {e:0, h:0, s:0};
   document.getElementById("journalConfirm").textContent = "";
   document.getElementById("shareFb").textContent = "";
@@ -1280,15 +1263,12 @@ function submitJournal() {
 }
 
 function getProfilText() {
-  var entries = Object.entries(scores).sort(function(a,b){ return b[1]-a[1]; });
-  var dominant = entries[0][0];
-  var p = profiles[dominant];
-  var total = Object.values(scores).reduce(function(a,b){ return a+b; }, 0);
-  var pct = function(el) { return total > 0 ? Math.round((scores[el]/total)*100) : 0; };
-  return p.symbol + " " + p.title + " — " + p.subtitle
-    + "\n\nMix elementaire :\nEau " + pct("eau") + "% · Feu " + pct("feu") + "% · Terre " + pct("terre") + "% · Air " + pct("air") + "%"
-    + "\n\nPlantes alliees : " + p.plantes.map(function(pl){ return pl.nom; }).join(", ")
-    + "\n\nDecouvrez votre profil : laquinquafelee.fr/quiz";
+  const elements = ['eau', 'feu', 'terre', 'air'];
+  const max = Math.max(...elements.map(k => scores[k]));
+  const names = elements.filter(k => scores[k] === max).map(k => k[0].toUpperCase() + k.slice(1));
+  return 'Mon profil du moment : ' + names.join(' · ') + '\n\n'
+    + elements.map(k => k[0].toUpperCase() + k.slice(1) + ' ' + (Math.round(scores[k] / 12 * 1000) / 10).toLocaleString('fr-FR') + ' %').join(' · ')
+    + '\n\nUn repère pédagogique, sans diagnostic. Découvrez le quiz : https://laquinquafelee.fr/quiz';
 }
 
 function copyProfil() {
@@ -1303,5 +1283,7 @@ function shareWa() {
 }
 
 </script>
+<script src="quiz-email.js?v=20261106-1"></script>
 </body>
 </html>
+
