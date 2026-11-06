@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ateliers Grand Public — La Quinqua Fêlée™</title>
-  <meta name="description" content="Ateliers bienveillants pour mieux vivre la ménopause et les transitions après 45 ans. Ancrés dans la réalité créole.">
+  <title>Ateliers et Jeudis de la ménopause — La Quinqua Fêlée™</title>
+  <meta name="description" content="Découvre les thématiques des ateliers LQF et les Jeudis de la ménopause : comprendre, échanger et avancer après 45 ans. Dates et modalités à venir.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -480,6 +480,20 @@
       .formats-grid { grid-template-columns: repeat(4, 1fr); }
       section { padding: 4rem 2rem; }
     }
+
+    /* Programmation et rencontres : information, sans réservation ouverte. */
+    [hidden] { display: none !important; }
+    .hero-jeudis-link { display: inline-block; color: var(--dore-light); margin-top: 1.2rem; text-underline-offset: .25rem; }
+    .programmation-note { max-width: 680px; margin: 0 auto 2rem; padding: 1rem 1.2rem; background: var(--creme-dark); border-left: 3px solid var(--dore); border-radius: 0 10px 10px 0; color: var(--texte-doux); font-size: .9rem; }
+    .atelier-contenu .atelier-repere { color: var(--prune); font-weight: 500; margin-top: .65rem; }
+    .section-jeudis { background: var(--creme-dark); }
+    .jeudis-contenu { max-width: 650px; margin: 0 auto; }
+    .jeudis-contenu > p { margin-bottom: 1rem; }
+    .jeudis-repere { text-align: center; text-transform: uppercase; letter-spacing: .12em; color: var(--prune); font-size: .75rem; }
+    .jeudis-statut { text-align: center; padding: 1rem; color: var(--prune); border-top: 1px solid var(--dore); margin-top: 1.5rem; }
+    .interet-note { text-align: center; color: var(--texte-doux); font-size: .8rem; }
+    a:focus-visible { outline: 3px solid var(--rose); outline-offset: 5px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hero > * { animation: none; opacity: 1; } .btn, .atelier-card { transition: none; } }
   </style>
 </head>
 <body>
@@ -487,14 +501,15 @@
 <!-- HERO -->
 <section class="hero">
   <p class="hero-marque">La Quinqua Fêlée™ · Guadeloupe</p>
-  <h1 class="hero-titre">Ateliers Grand Public<br>La Quinqua Fêlée™</h1>
+  <h1 class="hero-titre">Ateliers et rencontres<br>après 45 ans</h1>
   <p class="hero-sous-titre">Mieux vivre la ménopause et les transitions après 45 ans</p>
   <p class="hero-signature">Comprendre <span>·</span> Nourrir <span>·</span> Honorer</p>
   <p class="hero-accroche">Après 45 ans, ton corps ne "bug" pas.<br>Il te parle.</p>
-  <p class="hero-intro">Fatigue, sommeil en vrac, bouffées de chaleur, brouillard mental, émotions, perte d'élan… Et si tu mettais enfin des mots sur ce que tu traverses ?</p>
+  <p class="hero-intro">Fatigue, sommeil, émotions, charge mentale, changements du corps ou envie de te réinventer… Des espaces pour mettre des mots sur ton vécu, partager et repartir avec des repères concrets.</p>
   <div class="hero-btns">
     <a href="https://laquinquafelee.fr/quiz-menopause-4elements" class="btn btn-principal">🌺 Faire le quiz</a>
-    <a href="#ateliers" class="btn btn-secondaire">Découvrir les ateliers</a>
+    <a href="#ateliers" class="btn btn-secondaire">Découvrir les thématiques</a>
+    <a href="#jeudis" class="hero-jeudis-link">Les Jeudis de la ménopause</a>
   </div>
 </section>
 
@@ -507,80 +522,102 @@
 </section>
 
 <!-- ATELIERS PHARES -->
-<section id="ateliers">
-  <h2 class="section-titre">Nos ateliers phares</h2>
+<section id="ateliers" aria-labelledby="ateliers-titre">
+  <h2 class="section-titre" id="ateliers-titre">Six thématiques pour partir de ton vécu</h2>
   <div class="separateur"></div>
-  <p class="section-sous-titre">Des espaces bienveillants pour comprendre, échanger et retrouver des repères</p>
+  <p class="section-sous-titre">Comprendre, nourrir, honorer : des temps d’échange et de pratique, ancrés dans la réalité créole.</p>
+  <p class="programmation-note"><strong>Aucune date n’est programmée à ce jour.</strong> Ces thématiques présentent les ateliers envisagés. Les dates, lieux, modalités et tarifs seront communiqués lorsque les sessions seront confirmées.</p>
   <div class="ateliers-grid">
-    <div class="atelier-card">
-      <div class="atelier-numero">1</div>
+    <article class="atelier-card">
+      <div class="atelier-numero" aria-hidden="true">1</div>
       <div class="atelier-contenu">
         <h3>Comprendre la périménopause et la ménopause</h3>
-        <p>Changements hormonaux, transformations du corps, signaux fréquents, idées reçues et repères utiles.</p>
+        <p>Mettre des mots sur les changements du corps, faire le tri dans les idées reçues et préparer ses questions pour les professionnels de santé.</p>
+        <p class="atelier-repere">Comprendre ce que tu traverses</p>
       </div>
-    </div>
-    <div class="atelier-card">
-      <div class="atelier-numero">2</div>
+    </article>
+    <article class="atelier-card">
+      <div class="atelier-numero" aria-hidden="true">2</div>
       <div class="atelier-contenu">
         <h3>Alimentation de confort et ressources créoles</h3>
-        <p>Des pistes simples inspirées des ressources locales pour mieux soutenir son quotidien.</p>
+        <p>Explorer des habitudes alimentaires accessibles, les produits locaux et les savoirs transmis. Aborder les plantes de confort avec leurs précautions d’usage.</p>
+        <p class="atelier-repere">Trouver des repères dans ton quotidien</p>
       </div>
-    </div>
-    <div class="atelier-card">
-      <div class="atelier-numero">3</div>
+    </article>
+    <article class="atelier-card">
+      <div class="atelier-numero" aria-hidden="true">3</div>
       <div class="atelier-contenu">
-        <h3>Bouffées de chaleur, sommeil et fatigue</h3>
-        <p>Comprendre ces inconforts et découvrir des pistes concrètes pour apaiser le quotidien.</p>
+        <h3>Sommeil, fatigue et bouffées de chaleur</h3>
+        <p>Observer ce qui pèse sur ton énergie et ton repos, partager ton vécu et explorer des gestes de confort adaptés à ton rythme.</p>
+        <p class="atelier-repere">Faire une place à la récupération</p>
       </div>
-    </div>
-    <div class="atelier-card">
-      <div class="atelier-numero">4</div>
+    </article>
+    <article class="atelier-card">
+      <div class="atelier-numero" aria-hidden="true">4</div>
       <div class="atelier-contenu">
-        <h3>Brouillard mental, mémoire et concentration</h3>
-        <p>Mettre des mots sur les troubles cognitifs et soutenir sa clarté mentale.</p>
+        <h3>Charge mentale, émotions et brouillard mental</h3>
+        <p>Parler de ce qui déborde, des oublis et des difficultés de concentration. Essayer des outils simples pour alléger les sollicitations et demander du soutien.</p>
+        <p class="atelier-repere">Te sentir écoutée et retrouver des repères</p>
       </div>
-    </div>
-    <div class="atelier-card">
-      <div class="atelier-numero">5</div>
+    </article>
+    <article class="atelier-card">
+      <div class="atelier-numero" aria-hidden="true">5</div>
       <div class="atelier-contenu">
-        <h3>Réinvention après 45 ans</h3>
-        <p>Faire le point, retrouver son élan et ouvrir un nouveau chapitre personnel ou professionnel.</p>
+        <h3>Réinventer sa place après 45 ans</h3>
+        <p>Faire le point sur tes envies, ta place au travail et dans la famille. Explorer tes ressources, tes limites et un prochain pas personnel ou professionnel.</p>
+        <p class="atelier-repere">Retrouver ton élan, à ton rythme</p>
       </div>
-    </div>
-    <div class="atelier-card">
-      <div class="atelier-numero">6</div>
+    </article>
+    <article class="atelier-card">
+      <div class="atelier-numero" aria-hidden="true">6</div>
       <div class="atelier-contenu">
-        <h3>Libido, intimité, périnée et image de soi</h3>
-        <p>Aborder les sujets intimes avec douceur, dignité et respect.</p>
+        <h3>Corps, intimité et image de soi</h3>
+        <p>Ouvrir la parole sur le corps qui change, la libido, l’intimité et le périnée. Questionner le regard sur l’âge et repérer les interlocuteurs utiles.</p>
+        <p class="atelier-repere">Retrouver de la confiance et du choix</p>
       </div>
-    </div>
+    </article>
+  </div>
+</section>
+
+<!-- JEUDIS DE LA MENOPAUSE -->
+<section class="section-jeudis" id="jeudis" aria-labelledby="jeudis-titre">
+  <div class="jeudis-contenu">
+    <p class="jeudis-repere">Un espace pour la parole et le lien</p>
+    <h2 class="section-titre" id="jeudis-titre">Les Jeudis de la ménopause</h2>
+    <div class="separateur"></div>
+    <p>Et si tu pouvais parler de la ménopause sans devoir tout expliquer, tout minimiser ou tout porter seule ?</p>
+    <p>Un projet de rencontres pour partager les vécus, poser ses questions et explorer ensemble des repères utiles. Sommeil, fatigue, émotions, charge mentale, corps, intimité ou vie au travail : les échanges partiront des préoccupations des participantes.</p>
+    <p>La parole restera libre : tu pourras aussi simplement écouter. Des rencontres pensées pour rompre l’isolement et créer du soutien entre femmes.</p>
+    <p class="jeudis-statut"><strong>Rencontres en préparation — dates et modalités à venir.</strong></p>
+    <a class="btn btn-principal" href="https://wa.me/590690701398?text=Bonjour%2C%20les%20Jeudis%20de%20la%20m%C3%A9nopause%20m%E2%80%99int%C3%A9ressent.%20Je%20souhaite%20en%20savoir%20plus%20sur%20ce%20projet%20de%20rencontres.">Les Jeudis m’intéressent</a>
+    <p class="interet-note">Ce lien ouvre WhatsApp pour nous faire part de ton intérêt. Il ne réserve pas de place.</p>
   </div>
 </section>
 
 <!-- FORMATS -->
 <section style="background: var(--creme-dark);">
-  <h2 class="section-titre">Formats proposés</h2>
+  <h2 class="section-titre">Des formats pour découvrir ou approfondir</h2>
   <div class="separateur"></div>
   <div class="formats-grid">
     <div class="format-card">
       <span class="format-icone">🌸</span>
       <h3>Atelier découverte</h3>
-      <p>2h à 3h pour poser les bases et repartir avec des repères.</p>
+      <p>2 h à 3 h pour découvrir les transformations après 45 ans et poser tes premières questions.</p>
     </div>
     <div class="format-card">
       <span class="format-icone">🎯</span>
       <h3>Atelier thématique</h3>
-      <p>Un focus sur un sujet précis : sommeil, fatigue, alimentation, émotions…</p>
+      <p>Un focus sur un sujet précis pour approfondir tes repères et expérimenter des outils concrets.</p>
     </div>
     <div class="format-card">
       <span class="format-icone">🤝</span>
       <h3>Cycle en petit groupe</h3>
-      <p>Un parcours collectif pour aller plus loin et avancer pas à pas.</p>
+      <p>Un parcours pour approfondir et avancer ensemble. Durée et rythme à préciser selon le cycle.</p>
     </div>
     <div class="format-card">
       <span class="format-icone">💬</span>
       <h3>Rencontre bien-être</h3>
-      <p>Un temps d'échange, de ressources et de conseils pratiques.</p>
+      <p>Des échanges, des outils et des pistes pratiques. Les Jeudis de la ménopause sont un projet de rencontres dont les modalités restent à préciser.</p>
     </div>
   </div>
 </section>
@@ -594,7 +631,7 @@
 
 <!-- CE QUE VOUS GAGNEZ -->
 <section>
-  <h2 class="section-titre">Ce que vous y gagnez</h2>
+  <h2 class="section-titre">Ce que tu peux y trouver</h2>
   <div class="separateur"></div>
   <ul class="gains-liste">
     <li><span class="gain-dot"></span>Des repères clairs</li>
@@ -622,9 +659,9 @@
 
 <!-- CTA FINAL -->
 <section class="section-cta">
-  <h2 class="cta-titre">Envie de participer ou d'organiser un atelier ?</h2>
-  <p class="cta-sous">Contactez-nous sur WhatsApp pour toute question, information ou demande d'organisation.</p>
-  <a href="https://wa.me/590690701398" class="btn btn-whatsapp">💬 Me contacter sur WhatsApp</a>
+  <h2 class="cta-titre">Un thème te parle ? Fais-nous part de ton intérêt</h2>
+  <p class="cta-sous">Aucune session n’est ouverte à l’inscription pour le moment. Écris-nous pour nous indiquer les thèmes qui t’intéressent ou envisager l’organisation d’un atelier.</p>
+  <a href="https://wa.me/590690701398?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20les%20ateliers%20LQF.%20Les%20th%C3%A8mes%20qui%20m%E2%80%99int%C3%A9ressent%20sont%20%3A%20" class="btn btn-whatsapp">💬 Un atelier m’intéresse</a>
   <a href="https://laquinquafelee.fr/quiz-menopause-4elements" class="btn btn-quiz-dark" style="margin-top:0.5rem;">🌺 Faire le quiz</a>
 </section>
 
@@ -642,3 +679,4 @@
 
 </body>
 </html>
+
