@@ -481,6 +481,12 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
 .contact-parcours .btn-primary { display:inline-block; margin-bottom:1rem; text-align:center; }
 .contact-parcours .contact-precision { font-size:.85rem; margin-bottom:2rem; }
 .contact-parcours > a:not(.btn-primary) { display:inline-block; color:var(--magenta); text-underline-offset:.2em; margin-right:1.25rem; margin-bottom:1rem; }
+
+.terrain-photo{max-width:1000px;margin:2rem auto 0;}
+.terrain-photo img{display:block;width:100%;height:auto;border-radius:18px;}
+.terrain-photo figcaption{font-size:.85rem;line-height:1.6;color:var(--text-mid);margin-top:.7rem;}
+.terrain-accueil{padding:0 2rem;margin:2rem auto 3rem;}
+.portrait-fondatrice{display:block;width:160px;height:160px;object-fit:cover;border-radius:50%;margin:0 auto 1.2rem;}
 </style>
 </head>
 <body>
@@ -530,6 +536,11 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
     </div>
   </div>
 </section>
+
+<figure class="terrain-photo terrain-accueil">
+  <img src="./photos/cercle-taonaba.svg" alt="Des participantes et des intervenantes échangent en cercle à Taonaba." width="1280" height="575" loading="lazy" decoding="async">
+  <figcaption>À Taonaba, un temps d’échange entre femmes : écouter, partager, transmettre.</figcaption>
+</figure>
 
 <!-- OFFRES -->
 <section class="offres" id="ateliers-lqf">
@@ -591,6 +602,10 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
     <p>La fatigue, les difficultés de concentration, la charge mentale ou les changements de place dans la vie professionnelle peuvent soulever des questions au travail. La ménopause peut être abordée explicitement selon la demande, dans une démarche pédagogique et non médicale.</p>
     <p>La Quinqua Fêlée, Maison de Transmission ancrée en Guadeloupe, met en dialogue connaissances, expériences vécues et outils pédagogiques. Les échanges portent sur les situations de travail et les ressources mobilisables, dans le respect du choix de chacune de partager ou non son vécu.</p>
   </div>
+  <figure class="terrain-photo">
+    <img src="./photos/salon-reconversion.svg" alt="Deux intervenantes échangent au micro lors du Salon de la reconversion professionnelle." width="1280" height="960" loading="lazy" decoding="async">
+    <figcaption>Prendre la parole et ouvrir le dialogue au Salon de la reconversion professionnelle.</figcaption>
+  </figure>
   <div class="qvct-formats">
     <article class="qvct-carte" aria-labelledby="qvct-sensibiliser">
       <p class="qvct-etape">01 · Sensibiliser</p>
@@ -751,7 +766,7 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
     </div>
 
     <div class="approche-item">
-      <div class="approche-icon">👩🏾</div>
+      <img class="portrait-fondatrice" src="./photos/myriam-louisy.svg" alt="Portrait de Myriam Louisy" width="450" height="450" loading="lazy" decoding="async">
       <div class="approche-title">Une voix qui vous ressemble</div>
       <p class="approche-desc">Accompagnatrice des transitions de vie, elle traverse elle-même cette période — et parle avec vos mots, votre culture, votre vécu.</p>
     </div>
@@ -817,4 +832,5 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
 
 </body>
 </html>
+
 
