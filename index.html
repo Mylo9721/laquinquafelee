@@ -476,6 +476,11 @@ section[id] { scroll-margin-top: 6rem; }
 a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
 @media(max-width:980px){ .qvct-formats { grid-template-columns:1fr; } }
 
+.contact-parcours h3 { font-family:'Playfair Display',serif; font-size:1.3rem; line-height:1.4; margin-bottom:.75rem; }
+.contact-parcours p { color:var(--text-mid); line-height:1.8; margin-bottom:1rem; }
+.contact-parcours .btn-primary { display:inline-block; margin-bottom:1rem; text-align:center; }
+.contact-parcours .contact-precision { font-size:.85rem; margin-bottom:2rem; }
+.contact-parcours > a:not(.btn-primary) { display:inline-block; color:var(--magenta); text-underline-offset:.2em; margin-right:1.25rem; margin-bottom:1rem; }
 </style>
 </head>
 <body>
@@ -764,37 +769,16 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:5px; }
   <div class="section-eyebrow">Prendre contact</div>
   <h2 class="section-title">Parlons de <em>votre projet</em></h2>
   <div class="contact-inner">
-    <form class="contact-form" action="https://formspree.io/f/mbdbaklv" method="POST">
-      <div class="form-group">
-        <label class="form-label">Vous êtes</label>
-        <select class="form-select">
-          <option>Une particulière (B2C)</option>
-          <option>Une entreprise (B2B)</option>
-          <option>Un centre social / CCAS / Mairie</option>
-          <option>Une institution (CGSS, ARS, Région)</option>
-          <option>Un partenaire / investisseur</option>
-        </select>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-        <div class="form-group">
-          <label class="form-label">Prénom</label>
-          <input class="form-input" type="text" placeholder="Marie">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Nom</label>
-          <input class="form-input" type="text" placeholder="Dupont">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" placeholder="marie@exemple.fr">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Votre message</label>
-        <textarea class="form-textarea" placeholder="Décrivez votre projet ou votre question..."></textarea>
-      </div>
-      <button class="form-submit">Envoyer le message 🌺</button>
-    </form>
+    <div class="contact-form contact-parcours">
+      <h3>Un atelier ou une rencontre t’intéresse ?</h3>
+      <p>Laisse tes coordonnées dans notre formulaire pour que nous puissions te recontacter au sujet de ta demande. Tu peux indiquer plusieurs centres d’intérêt : ateliers, rencontres, accompagnement ou ouverture des adhésions.</p>
+      <a class="btn-primary" href="https://form.jotform.com/263095968514065">Ouvrir le formulaire de contact</a>
+      <p class="contact-precision">Aucune réservation ni aucun paiement. La notice de protection des données et ton accord de recontact figurent dans le formulaire.</p>
+      <h3>Tu représentes une entreprise ou une structure ?</h3>
+      <p>Précise le public concerné et le besoin que tu souhaites travailler. Nous pourrons échanger avant de définir une proposition.</p>
+      <a href="mailto:laquinquafelee@gmail.com?subject=Demande%20de%20contact%20%E2%80%94%20LQF">Écrire à La Quinqua Fêlée</a>
+      <a href="https://wa.me/590690701398?text=Bonjour%2C%20je%20repr%C3%A9sente%20une%20structure%20et%20je%20souhaite%20%C3%A9changer%20sur%20un%20projet%20avec%20LQF." class="contact-structure-whatsapp">Échanger sur WhatsApp</a>
+    </div>
     <div class="contact-info">
       <div class="contact-block">
         <div class="contact-icon">📱</div>
